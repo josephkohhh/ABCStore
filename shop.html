@@ -10,11 +10,46 @@
 </head>
 
 <body>
-
+    <!-- Header -->
     <header>
+        <!-- Nav -->
         <div class="nav container">
+            <!-- logo -->
             <a href="#" class="logo"><span>ABC</span>Store</a>
+            <!-- cart icon -->
             <i class="fa-solid fa-cart-shopping fa-2xl" id="cart-icon"></i>
+            <!-- Cart -->
+            <div class="cart">
+                <h2 class="cart-title">Your Cart</h2>
+
+                <!-- Content -->
+                <div class="cart-content">
+                    <!-- test box -->
+                    <!-- <div class="cart-box"> -->
+                        <!-- <img src="./images/1.png" alt="" class="cart-img">
+                        <div class="detail-box">
+                            <div class="cart-product-title">Strawberry</div>
+                            <div class="cart-price">$10.00</div>
+                            <input type="number" value="1" class="cart-quantity">
+                        </div> -->
+                        <!-- Remove cart -->
+                        <!-- <i class="fa-solid fa-trash fa-lg cart-remove"></i> -->
+                    <!-- </div> -->
+                </div>
+
+                <!-- Total -->
+                <div class="total">
+                    <div class="total-title">Total</div>
+                    <div class="total-price">$0.00</div>
+                </div>
+
+                <!-- Buy -->
+                <button type="button" class="btn-buy">Buy Now</button>
+
+                <!-- Cart close -->
+                <i class="fa-solid fa-x fa-2xl" id="cart-close" style="color: #000000;"></i>
+            </div>
+
         </div>
     </header>
 
@@ -95,168 +130,169 @@
             </div>
         </div>
     </section>
-
-    <!-- Modal -->
-    <!-- box 1 -->
-    <div id="popup1" class="popup" onclick="hidePopup('popup1')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/1.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Strawberry</h2>
-                <h2 class="product-price">$10.00</h2>
+    <modal>
+        <!-- Modal -->
+        <!-- box 1 -->
+        <div id="popup1" class="popup" onclick="hidePopup('popup1')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/1.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Strawberry</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 2 -->
-    <div id="popup2" class="popup" onclick="hidePopup('popup2')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/2.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Onion</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 2 -->
+        <div id="popup2" class="popup" onclick="hidePopup('popup2')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/2.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Onion</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 3 -->
-    <div id="popup3" class="popup" onclick="hidePopup('popup3')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/3.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Tomato</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 3 -->
+        <div id="popup3" class="popup" onclick="hidePopup('popup3')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/3.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Tomato</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 4 -->
-    <div id="popup4" class="popup" onclick="hidePopup('popup4')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/4.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Orange</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 4 -->
+        <div id="popup4" class="popup" onclick="hidePopup('popup4')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/4.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Orange</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 5 -->
-    <div id="popup5" class="popup" onclick="hidePopup('popup5')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/5.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Broccoli</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 5 -->
+        <div id="popup5" class="popup" onclick="hidePopup('popup5')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/5.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Broccoli</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 6 -->
-    <div id="popup6" class="popup" onclick="hidePopup('popup6')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/6.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Potato</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 6 -->
+        <div id="popup6" class="popup" onclick="hidePopup('popup6')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/6.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Potato</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 7 -->
-    <div id="popup7" class="popup" onclick="hidePopup('popup7')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/7.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Apple</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 7 -->
+        <div id="popup7" class="popup" onclick="hidePopup('popup7')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/7.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Apple</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 8 -->
-    <div id="popup8" class="popup" onclick="hidePopup('popup8')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/8.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Grape</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 8 -->
+        <div id="popup8" class="popup" onclick="hidePopup('popup8')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/8.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Grape</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 9 -->
-    <div id="popup9" class="popup" onclick="hidePopup('popup9')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/9.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Spinach</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 9 -->
+        <div id="popup9" class="popup" onclick="hidePopup('popup9')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/9.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Spinach</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
-    <!-- box 10 -->
-    <div id="popup10" class="popup" onclick="hidePopup('popup10')">
-        <div class="popup-content">
-            <span class="close" onclick="closeModal()">X</span>
-            <img src="images/10.png" style="max-width: 100%; height: 285px;">
-            <div class="product-info">
-                <h2 class="product-title">Carrot</h2>
-                <h2 class="product-price">$10.00</h2>
+        <!-- box 10 -->
+        <div id="popup10" class="popup" onclick="hidePopup('popup10')">
+            <div class="popup-content">
+                <span class="close" onclick="closeModal()">X</span>
+                <img src="images/10.png" style="max-width: 100%; height: 285px;">
+                <div class="product-info">
+                    <h2 class="product-title">Carrot</h2>
+                    <h2 class="product-price">$10.00</h2>
+                </div>
+                <div class="product-desc">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
+                        consequatur exercitationem sunt maiores. </p>
+                </div>
+                <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
             </div>
-            <div class="product-desc">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
-                    consequatur exercitationem sunt maiores. </p>
-            </div>
-            <div class="product-button"><button class="modal-add-to-cart-btn">Add to Cart</button></div>
         </div>
-    </div>
+    </modal>
 
     <script src="shop.js"></script>
 </body>
