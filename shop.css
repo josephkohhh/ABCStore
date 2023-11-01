@@ -92,12 +92,22 @@ header {
     font-size: 40px;
 }
 
+.fa-circle {
+    position: absolute;
+    top: 24px;
+    display: none;
+}
+
+.fa-circle.active{
+    display: inline;
+}
+
 /* cart */
 
 .cart{
     position: fixed;
     top:0;
-    right:0;
+    /* right:0; */
     right:-100%;  
     width:360px;
     height:100vh;
@@ -380,7 +390,7 @@ img {
     }
 
     .shop{
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
 }
@@ -407,5 +417,4 @@ img {
     .cart{
         width: 280px;
     }
-    
 }
