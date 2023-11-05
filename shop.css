@@ -227,7 +227,7 @@ header {
     display: flex;
     margin: 1.5rem auto 0 auto;
     padding: 12px 20px;
-    border: 1px solid #d27401;
+    border: 1px solid black;
     background-color: rgb(49, 48, 48);
     color: var(--bg-color);
     font-weight: 600;
