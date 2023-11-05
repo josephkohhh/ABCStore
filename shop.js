@@ -97,9 +97,19 @@ function addEvents() {
         btn.addEventListener("click", handle_addCartItem);
     });
 
+    // Add item to cart from popup
+    let addCart_btns2 = document.querySelectorAll('.modal-add-to-cart-btn');
+    addCart_btns2.forEach((btn) => {
+        btn.addEventListener("click", handle_addModalCartItem);
+    });
+
     // Buy order
     const buy_btn = document.querySelector(".btn-buy");
     buy_btn.addEventListener("click", handle_buyOrder);
+
+    // Clear order
+    const clear_btn = document.querySelector(".btn-clear");
+    clear_btn.addEventListener("click", handle_clearOrder);
 }
 
 // ============ Handle event functions ===============
@@ -110,31 +120,76 @@ function handle_addCartItem() {
     let price = product.querySelector(".product-price").textContent;
     let imgSrc = product.querySelector(".product-img").src;
 
-    // create an object
-    let newToAdd = {
-        title,
-        price,
-        imgSrc,
-        quantity: 1 // Set the default quantity to 1
-    };
+    let existingItem = itemsAdded.find(p => p.title === title);
 
-    // handle item is already exist
-    if (itemsAdded.find(p => p.title == newToAdd.title)) {
-        alert('This item already exist!');
-        return;
+    if (existingItem) {
+        // If the item already exists, increase the quantity by 1
+        existingItem.quantity += 1;
+        updateLocalStorage();
+        renderCartItems();
+        update();
+
     } else {
+        // If the item does not exist, create a new entry with quantity 1
+        let newToAdd = {
+            title,
+            price,
+            imgSrc,
+            quantity: 1
+        };
         itemsAdded.push(newToAdd);
         updateLocalStorage();
+
+        // Add product to the cart
+        let cartBoxElement = cartBoxComponent(title, price, imgSrc, 1); // Set the quantity to 1 when adding the item to the cart
+        let newNode = document.createElement("div");
+        newNode.innerHTML = cartBoxElement;
+        const cartContent = cart.querySelector('.cart-content');
+        cartContent.appendChild(newNode);
+
+        renderCartItems();
+        update();
+
     }
+}
 
-    // add product(s) to cart
-    let cartBoxElement = cartBoxComponent(title, price, imgSrc);
-    let newNode = document.createElement("div");
-    newNode.innerHTML = cartBoxElement;
-    const cartContent = cart.querySelector('.cart-content');
-    cartContent.appendChild(newNode);
+function handle_addModalCartItem() {
+    let product = this.closest(".popup");
+    let title = product.querySelector(".product-title").textContent;
+    let price = product.querySelector(".product-price").textContent;
+    let imgSrc = product.querySelector(".product-img").src;
 
-    update();
+    let existingItem = itemsAdded.find(p => p.title === title);
+
+    if (existingItem) {
+        // If the item already exists, increase the quantity by 1
+        existingItem.quantity += 1;
+        updateLocalStorage();
+        renderCartItems();
+        update();
+
+    } else {
+        // If the item does not exist, create a new entry with quantity 1
+        let newToAdd = {
+            title,
+            price,
+            imgSrc,
+            quantity: 1
+        };
+        itemsAdded.push(newToAdd);
+        updateLocalStorage();
+
+        // Add product to the cart
+        let cartBoxElement = cartBoxComponent(title, price, imgSrc, 1); // Set the quantity to 1 when adding the item to the cart
+        let newNode = document.createElement("div");
+        newNode.innerHTML = cartBoxElement;
+        const cartContent = cart.querySelector('.cart-content');
+        cartContent.appendChild(newNode);
+
+        renderCartItems();
+        update();
+
+    }
 }
 
 function handle_removeCartItem() {
@@ -174,15 +229,30 @@ function handle_buyOrder() {
         alert("Please make an order first!");
         return;
     }
-    const cartContent = cart.querySelector(".cart-content");
-    cartContent.textContent = '';
+    const cartContentBuy = cart.querySelector(".cart-content");
+    cartContentBuy.textContent = '';
     alert("Your order has been placed successfully!");
     // Clear all items from local storage
     localStorage.removeItem('itemsAdded');
-    
+
     itemsAdded = []; // Reset the itemsAdded array
 
     update();
+}
+
+function handle_clearOrder() {
+    if (itemsAdded.length <= 0) {
+        alert("Please make an order first!");
+        return;
+    }
+    const cartContentClear = cart.querySelector(".cart-content");
+    cartContentClear.textContent = '';
+    // Clear all items from local storage
+    localStorage.removeItem('itemsAdded');
+    itemsAdded = []; // Reset the itemsAdded array
+
+    update();
+
 }
 
 // ============ Update and re-render functions ===============
@@ -190,7 +260,7 @@ function renderCartItems() {
     const cartContent = cart.querySelector('.cart-content');
     cartContent.innerHTML = ""; // Clear existing content before rendering
     itemsAdded.forEach(item => {
-        cartContent.insertAdjacentHTML('beforeend', cartBoxComponent(item.title, item.price, item.imgSrc));
+        cartContent.insertAdjacentHTML('beforeend', cartBoxComponent(item.title, item.price, item.imgSrc, item.quantity));
     });
 }
 
@@ -219,24 +289,25 @@ function updateCartState() {
     const cartState = document.querySelector(".fa-circle");
     const cartContentTitles = document.querySelectorAll('.cart-product-title')
     if (cartContentTitles.length > 0) {
-        cartState.classList.add('active');
+        cartState.style.display = 'inline';
     } else {
-        cartState.classList.remove('active');
+        cartState.style.display = 'none';
     }
 }
 
 // ============ HTML functions ===============
-function cartBoxComponent(title, price, imgSrc) {
+function cartBoxComponent(title, price, imgSrc, quantity) {
     return `
     <div class="cart-box">
     <img src="${imgSrc}" alt="" class="cart-img">
     <div class="detail-box">
         <div class="cart-product-title">${title}</div>
         <div class="cart-price">${price}</div>
-        <input type="number" value="1" class="cart-quantity">
+        <input type="number" value="${quantity}" class="cart-quantity">
     </div>
     <!-- Remove cart -->
     <i class="fa-solid fa-trash fa-lg cart-remove"></i>
     </div>`;
 }
+
 
