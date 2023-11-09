@@ -61,9 +61,23 @@
     <section class="shop container">
         <h1 class="section-title">Shop Products</h1>
 
+        <div class="filter">
+
+            <input type="text" placeholder="Search.." name="search" id="myInput" style="user-select: text" onkeyup="searchFunction()">
+
+            <div class="dropdown">
+                <button class="dropbtn"><span><i class="fa-solid fa-filter" style="color: #858585;"></i></span>
+                    Filter</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Price - Lowest to Highest</a>
+                    <a href="#">Price - Highest to Lowest</a>
+                </div>
+            </div>
+        </div>
+
         <div class="shop-content">
             <!-- box 1 -->
-            <div class="product-box">
+            <div class="product-box ">
                 <img src="images/1.png" alt="" class="product-img" onclick="showPopup('popup1')">
                 <h2 class=" product-title">Strawberry</h2>
                 <span class="product-price">$10.00</span>

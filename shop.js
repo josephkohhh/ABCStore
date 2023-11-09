@@ -16,16 +16,8 @@ const cart = document.querySelector(".cart");
 const cartIcon = document.querySelector("#cart-icon");
 const cartClose = document.querySelector("#cart-close");
 
-let isActive = false;
-
 cartIcon.addEventListener('click', () => {
-    if (isActive) {
-        cart.classList.remove('active');
-        isActive = false;
-    } else {
-        cart.classList.add('active');
-        isActive = true;
-    }
+        cart.classList.toggle('active');
 });
 
 cartClose.addEventListener('click', () => {
@@ -33,8 +25,41 @@ cartClose.addEventListener('click', () => {
     isActive = false;
 })
 
-// App functions
+// Filter functions
+const dropDownBtn = document.querySelector(".dropbtn");
+const dropdownContent = document.querySelector(".dropdown-content");
 
+dropDownBtn.addEventListener('click', () => {
+        dropdownContent.classList.toggle('show');
+});
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener('click', function (event) {
+    if (event.target !== dropDownBtn) {
+        dropdownContent.classList.remove('show');
+        isActiveFilter = false;
+    }
+});
+
+function searchFunction() {
+    let input, filter, productBoxes, productTitles, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    productBoxes = document.getElementsByClassName('product-box');
+
+    for (i = 0; i < productBoxes.length; i++) {
+        productTitles = productBoxes[i].querySelectorAll('.product-title');
+        txtValue = productTitles[0].textContent || productTitles[0].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            productBoxes[i].style.display = '';
+        } else {
+            productBoxes[i].style.display = 'none';
+        }
+    }
+}
+
+
+// Cart functions
 // Start when the document is ready
 if (document.readyState == "loading") {
     document.addEventListener('DOMContentLoaded', start);
