@@ -78,8 +78,8 @@ function start() {
     if (localStorage.getItem('itemsAdded')) {
         itemsAdded = JSON.parse(localStorage.getItem('itemsAdded'));
         renderCartItems();
-        findMinAndMaxPrices();
     }
+    findMinAndMaxPrices();
     addEvents();
 
     // Update the quantity values from the local storage
