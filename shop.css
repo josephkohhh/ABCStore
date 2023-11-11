@@ -373,7 +373,7 @@ header {
     position: sticky;
     top: 90px;
     margin-top: 10px;
-    min-width: 200px;
+    width: 200px;
     padding-right: 20px;
     height: 100px;
 }
@@ -390,7 +390,6 @@ header {
 
 .categories li {
     color: rgb(83, 83, 83);
-    font-size: 600;
     padding: 4px;
 }
 
@@ -576,6 +575,7 @@ img {
 
     .shop-content {
         grid-template-columns: repeat(3, 220px);
+        grid-template-rows: repeat(auto-fill, 300px);
     }
 
     .fa-cart-shopping {
@@ -614,8 +614,46 @@ img {
 
     .shop-content {
         grid-template-columns: repeat(3, 180px);
+        grid-template-rows: repeat(auto-fill, 255px);
     }
 
+    .categorization {
+        width: 170px;
+    }
+
+    .categories h2,
+    .filter-by-price h2 {
+        font-size: 18px;
+    }
+
+    .categories h2 {
+        margin-bottom: 15px;
+    }
+
+    .categories li {
+        color: rgb(83, 83, 83);
+        font-size: 16px;
+        padding: 4px;
+    }
+
+    /* price slider */
+    #price-slider {
+        width: 150px;
+    }
+
+    .product-box .product-title {
+        font-size: 18px;
+    }
+
+    .product-box .product-price {
+        font-size: 17px;
+        bottom: 6px;
+    }
+
+    .product-box .add-to-cart-btn {
+        width: 5.5rem;
+        font-size: 12px;
+    }
 }
 
 /* For semi-medium devices */
