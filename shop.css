@@ -260,7 +260,7 @@ header {
 
 /* shop */
 .shop {
-    margin-top: 4rem;
+    margin: 4rem 1rem 0 1rem;
 }
 
 .section-title {
@@ -308,12 +308,11 @@ header {
     background-color: rgb(253, 253, 253);
     color: #6c6c6c;
     font-weight: 600;
-    padding: 16px;
     font-size: 16px;
     cursor: pointer;
     font-weight: 400;
     transition: all 300ms ease;
-    width: 5.5rem;
+    width: 6rem;
     padding: 10px;
     border-radius: .5rem;
     border: rgb(169, 169, 169) 0.1rem solid;
@@ -336,7 +335,7 @@ header {
     display: none;
     position: absolute;
     background-color: rgb(253, 253, 253);
-    width: 120px;
+    width: 190px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     z-index: 1;
     border-radius: 10px;
@@ -360,11 +359,59 @@ header {
     color: #000000;
 }
 
+
+/* Main content */
+
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
+/* Categorization section */
+
+.categorization {
+    position: sticky;
+    top: 90px;
+    margin-top: 10px;
+    min-width: 200px;
+    padding-right: 20px;
+    height: 100px;
+}
+
+.categories h2,
+.filter-by-price h2 {
+    color: rgb(83, 83, 83);
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.categories h2 {
+    margin-bottom: 15px;
+}
+
+.categories li {
+    color: rgb(83, 83, 83);
+    font-size: 600;
+    padding: 4px;
+}
+
+.categories li:hover {
+    color: black;
+}
+
+/* price slider */
+#price-slider {
+    width: 180px;
+}
+
+
+/* Shop content */
+
 .shop-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(auto-fill, 281px);
     gap: 1.5rem;
-    margin: 10px;
+    margin-top: 10px;
 }
 
 .hidden {
@@ -380,21 +427,23 @@ header {
 
 .product-title {
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .product-price {
     position: relative;
     bottom: 3px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .add-to-cart-btn {
     position: absolute;
     right: 10px;
     bottom: 13px;
+    font-size: 12px;
     font-weight: 600;
     transition: all 300ms ease;
-    width: 7rem;
+    width: 6rem;
     padding: 5px;
     border-radius: 2rem;
     border: rgb(113, 113, 113) 0.1rem solid;
@@ -526,7 +575,7 @@ img {
     }
 
     .shop-content {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 220px);
     }
 
     .fa-cart-shopping {
@@ -559,15 +608,29 @@ img {
 
 }
 
-/* For semi-medium devices */
-@media screen and (max-width: 789px) {
+
+/* For medium devices */
+@media screen and (max-width: 925px) {
 
     .shop-content {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 180px);
     }
 
-    #myInput {
-        width: 20rem;
+}
+
+/* For semi-medium devices */
+@media screen and (max-width: 815px) {
+
+    .shop-content {
+        grid-template-columns: repeat(3, 130px);
+    }
+
+}
+
+@media screen and (max-width: 645px) {
+
+    .shop-content {
+        grid-template-columns: repeat(2, 145px);
     }
 
 }
@@ -575,8 +638,7 @@ img {
 @media screen and (max-width: 560px) {
 
     .shop-content {
-        grid-template-columns: repeat(1, 320px);
-        justify-content: center;
+        grid-template-columns: repeat(2, 135px);
     }
 
     #myInput {
@@ -588,7 +650,7 @@ img {
     }
 }
 
-/* For medium devices */
+/* For small devices */
 @media screen and (max-width: 400px) {
     header {
         height: 60px;
@@ -623,7 +685,7 @@ img {
     }
 
     .shop-content {
-        grid-template-columns: repeat(1, 320px);
+        grid-template-columns: repeat(2, 130px);
     }
 
     #myInput {
@@ -639,7 +701,7 @@ img {
     }
 }
 
-/* For medium devices */
+/* For small devices */
 @media screen and (max-width: 360px) {
     header {
         position: fixed;
@@ -652,16 +714,17 @@ img {
     .shop {
         margin-top: 2rem;
     }
-    .filter{
-        gap:0.5rem;
+
+    .filter {
+        gap: 0.5rem;
     }
+
     #myInput {
-        width: 10rem;
-        padding: 10px 20px 10px 40px;
+        width: 20rem;
     }
 
     .shop-content {
-        grid-template-columns: repeat(1, 240px);
+        grid-template-columns: repeat(2, 100px);
     }
 
     .dropdown-content {
@@ -690,5 +753,12 @@ img {
 
     .popup img {
         height: 210px;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 360px) {
+    #myInput {
+        width: 10rem;
     }
 }

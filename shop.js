@@ -17,7 +17,7 @@ const cartIcon = document.querySelector("#cart-icon");
 const cartClose = document.querySelector("#cart-close");
 
 cartIcon.addEventListener('click', () => {
-        cart.classList.toggle('active');
+    cart.classList.toggle('active');
 });
 
 cartClose.addEventListener('click', () => {
@@ -30,7 +30,7 @@ const dropDownBtn = document.querySelector(".dropbtn");
 const dropdownContent = document.querySelector(".dropdown-content");
 
 dropDownBtn.addEventListener('click', () => {
-        dropdownContent.classList.toggle('show');
+    dropdownContent.classList.toggle('show');
 });
 
 // Close the dropdown if the user clicks outside of it
@@ -59,6 +59,8 @@ function searchFunction() {
 }
 
 
+
+
 // Cart functions
 // Start when the document is ready
 if (document.readyState == "loading") {
@@ -76,6 +78,7 @@ function start() {
     if (localStorage.getItem('itemsAdded')) {
         itemsAdded = JSON.parse(localStorage.getItem('itemsAdded'));
         renderCartItems();
+        findMinAndMaxPrices();
     }
     addEvents();
 
@@ -135,12 +138,24 @@ function addEvents() {
     // Clear order
     const clear_btn = document.querySelector(".btn-clear");
     clear_btn.addEventListener("click", handle_clearOrder);
+
+    // Update Price slider
+    const priceSlider = document.getElementById('price-slider');
+    const priceRange = document.getElementById('price-range');
+
+    function updateDisplayedPrice() {
+        const selectedPrice = `$${priceSlider.value}`;
+        priceRange.textContent = `Selected Price: ${selectedPrice}`;
+    }
+
+    priceSlider.addEventListener('input', updateDisplayedPrice);
+    updateDisplayedPrice();
 }
 
 // ============ Handle event functions ===============
 
 function handle_addCartItem() {
-    let product = this.parentElement;
+    let product = this.closest(".product-box");
     let title = product.querySelector(".product-title").textContent;
     let price = product.querySelector(".product-price").textContent;
     let imgSrc = product.querySelector(".product-img").src;
@@ -280,6 +295,9 @@ function handle_clearOrder() {
 
 }
 
+
+
+
 // ============ Update and re-render functions ===============
 function renderCartItems() {
     const cartContent = cart.querySelector('.cart-content');
@@ -319,6 +337,29 @@ function updateCartState() {
         cartState.style.display = 'none';
     }
 }
+
+// Categorisation Functions
+// Price slider function
+
+// Function to traverse product boxes and get min and max prices
+function findMinAndMaxPrices() {
+    const productBoxes = document.querySelectorAll('.product-box');
+    let minPrice = Number.MAX_VALUE;
+    let maxPrice = Number.MIN_VALUE;
+
+    productBoxes.forEach(box => {
+        const priceElement = box.querySelector('.product-price');
+        const price = parseFloat(priceElement.textContent.replace('$', ''));
+        minPrice = Math.min(minPrice, price);
+        maxPrice = Math.max(maxPrice, price);
+    });
+
+    // Update the input range values
+    document.getElementById('price-slider').min = minPrice;
+    document.getElementById('price-slider').max = maxPrice;
+
+}
+
 
 // ============ HTML functions ===============
 function cartBoxComponent(title, price, imgSrc, quantity) {

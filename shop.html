@@ -58,94 +58,140 @@
         </div>
     </header>
 
-    <section class="shop container">
+    <section class="shop">
         <h1 class="section-title">Shop Products</h1>
 
         <div class="filter">
 
-            <input type="text" placeholder="Search.." name="search" id="myInput" style="user-select: text" onkeyup="searchFunction()">
+            <input type="text" placeholder="Search..." name="search" id="myInput" style="user-select: text"
+                onkeyup="searchFunction()">
 
             <div class="dropdown">
-                <button class="dropbtn"><span><i class="fa-solid fa-filter" style="color: #858585;"></i></span>
-                    Filter</button>
+                <button class="dropbtn">Sort by<span><i class="fa-solid fa-arrow-down"
+                            style="color: #858585; margin-left: 5px;"></i></span></button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Price - Lowest to Highest</a>
-                    <a href="#">Price - Highest to Lowest</a>
+                    <a href="#">Best Seller</a>
+                    <a href="#">Most Viewed</a>
+                    <a href="#">Price > High to Low</a>
+                    <a href="#">Price > Low to High</a>
+
                 </div>
             </div>
         </div>
 
-        <div class="shop-content">
-            <!-- box 1 -->
-            <div class="product-box ">
-                <img src="images/1.png" alt="" class="product-img" onclick="showPopup('popup1')">
-                <h2 class=" product-title">Strawberry</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
+        <div class="main-content">
+            <!-- Categorization -->
+            <div class="categorization">
+                <!-- category -->
+                <div class="categories">
+                    <h2>Categories</h2>
+                    <ul>
+                        <a href="#">
+                            <li>Meat & Fish</li>
+                        </a>
+                        <a href="#">
+                            <li>Vegetables & Fruit</li>
+                        </a>
+                        <a href="#">
+                            <li>Bread & Spreads</li>
+                        </a>
+                        <a href="#">
+                            <li>Beverages</li>
+                        </a>
+                        <a href="#">
+                            <li>Dairy</li>
+                        </a>
+                        <a href="#">
+                            <li>Snacks</li>
+                        </a>
+                        <a href="#">
+                            <li>Care Products</li>
+                        </a>
+                    </ul>
+                </div><br>
+                <!-- price slider -->
+                <div class="filter-by-price">
+                    <h2>Filter by Price</h2><br>
+                    <div>
+                        <label for="price-slider">Price Range:</label><br>
+                        <input type="range" id="price-slider" min="1" max="100" step="1" value="1">
+                        <p id="price-range">Selected Price: $0</p>
+                    </div>
+                    
+                </div>
             </div>
-            <!-- box 2 -->
-            <div class="product-box">
-                <img src="images/2.png" alt="" class="product-img" onclick="showPopup('popup2')">
-                <h2 class=" product-title">Onion</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
+            <div class="shop-content">
+                <!-- box 1 -->
+                <div class="product-box">
+                    <img src="images/1.png" alt="" class="product-img" onclick="showPopup('popup1')">
+                    <h2 class=" product-title">Strawberry</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 2 -->
+                <div class="product-box">
+                    <img src="images/2.png" alt="" class="product-img" onclick="showPopup('popup2')">
+                    <h2 class=" product-title">Onion</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
 
-            </div>
-            <!-- box 3 -->
-            <div class="product-box">
-                <img src="images/3.png" alt="" class="product-img" onclick="showPopup('popup3')">
-                <h2 class="product-title">Tomato</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 4 -->
-            <div class="product-box">
-                <img src="images/4.png" alt="" class="product-img" onclick="showPopup('popup4')">
-                <h2 class="product-title">Orange</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 5 -->
-            <div class="product-box">
-                <img src="images/5.png" alt="" class="product-img" onclick="showPopup('popup5')">
-                <h2 class="product-title">Broccoli</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 6 -->
-            <div class="product-box">
-                <img src="images/6.png" alt="" class="product-img" onclick="showPopup('popup6')">
-                <h2 class="product-title">Potato</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 7 -->
-            <div class="product-box">
-                <img src="images/7.png" alt="" class="product-img" onclick="showPopup('popup7')">
-                <h2 class="product-title">Apple</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 8 -->
-            <div class="product-box">
-                <img src="images/8.png" alt="" class="product-img" onclick="showPopup('popup8')">
-                <h2 class="product-title">Grape</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 9 -->
-            <div class="product-box">
-                <img src="images/9.png" alt="" class="product-img" onclick="showPopup('popup9')">
-                <h2 class="product-title">Spinach</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <!-- box 10 -->
-            <div class="product-box">
-                <img src="images/10.png" alt="" class="product-img" onclick="showPopup('popup10')">
-                <h2 class="product-title">Carrot</h2>
-                <span class="product-price">$10.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 3 -->
+                <div class="product-box">
+                    <img src="images/3.png" alt="" class="product-img" onclick="showPopup('popup3')">
+                    <h2 class="product-title">Tomato</h2>
+                    <span class="product-price">$5.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 4 -->
+                <div class="product-box">
+                    <img src="images/4.png" alt="" class="product-img" onclick="showPopup('popup4')">
+                    <h2 class="product-title">Orange</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 5 -->
+                <div class="product-box">
+                    <img src="images/5.png" alt="" class="product-img" onclick="showPopup('popup5')">
+                    <h2 class="product-title">Broccoli</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 6 -->
+                <div class="product-box">
+                    <img src="images/6.png" alt="" class="product-img" onclick="showPopup('popup6')">
+                    <h2 class="product-title">Potato</h2>
+                    <span class="product-price">$20.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 7 -->
+                <div class="product-box">
+                    <img src="images/7.png" alt="" class="product-img" onclick="showPopup('popup7')">
+                    <h2 class="product-title">Apple</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 8 -->
+                <div class="product-box">
+                    <img src="images/8.png" alt="" class="product-img" onclick="showPopup('popup8')">
+                    <h2 class="product-title">Grape</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 9 -->
+                <div class="product-box">
+                    <img src="images/9.png" alt="" class="product-img" onclick="showPopup('popup9')">
+                    <h2 class="product-title">Spinach</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- box 10 -->
+                <div class="product-box">
+                    <img src="images/10.png" alt="" class="product-img" onclick="showPopup('popup10')">
+                    <h2 class="product-title">Carrot</h2>
+                    <span class="product-price">$10.00</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
             </div>
         </div>
     </section>
@@ -190,7 +236,7 @@
                 <img src="images/3.png" class="product-img">
                 <div class="product-info">
                     <h2 class="product-title">Tomato</h2>
-                    <h2 class="product-price">$10.00</h2>
+                    <h2 class="product-price">$5.00</h2>
                 </div>
                 <div class="product-desc">
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
@@ -238,7 +284,7 @@
                 <img src="images/6.png" class="product-img">
                 <div class="product-info">
                     <h2 class="product-title">Potato</h2>
-                    <h2 class="product-price">$10.00</h2>
+                    <h2 class="product-price">$20.00</h2>
                 </div>
                 <div class="product-desc">
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsam? Quisquam esse tempore
