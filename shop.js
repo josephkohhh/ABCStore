@@ -56,6 +56,8 @@ function searchFunction() {
             productBoxes[i].style.display = 'none';
         }
     }
+
+    showClearFilter();
 }
 
 
@@ -139,17 +141,174 @@ function addEvents() {
     const clear_btn = document.querySelector(".btn-clear");
     clear_btn.addEventListener("click", handle_clearOrder);
 
-    // Update Price slider
+    // Sort by Price 
+    let highToLow = document.getElementById('highToLow');
+    highToLow.addEventListener("click", () => {
+        let shopContent = document.querySelector('.shop-content');
+        let productBoxes = Array.from(document.querySelectorAll('.product-box'));
+
+        // Sort product boxes based on the product-price in descending order
+        productBoxes.sort((a, b) => {
+            let priceA = parseFloat(a.querySelector('.product-price').textContent.replace('$', ''));
+            let priceB = parseFloat(b.querySelector('.product-price').textContent.replace('$', ''));
+            return priceB - priceA;
+
+        });
+
+        // Append sorted product boxes back to the container
+        productBoxes.forEach((productBox) => {
+            shopContent.appendChild(productBox);
+        });
+
+        showClearFilter();
+    })
+
+    let lowToHigh = document.getElementById('lowToHigh');
+    lowToHigh.addEventListener("click", () => {
+        let shopContent = document.querySelector('.shop-content');
+        let productBoxes = Array.from(document.querySelectorAll('.product-box'));
+
+        // Sort product boxes based on the product-price in descending order
+        productBoxes.sort((a, b) => {
+            let priceA = parseFloat(a.querySelector('.product-price').textContent.replace('$', ''));
+            let priceB = parseFloat(b.querySelector('.product-price').textContent.replace('$', ''));
+            return priceA - priceB;
+        });
+
+        // Append sorted product boxes back to the container
+        productBoxes.forEach((productBox) => {
+            shopContent.appendChild(productBox);
+        });
+
+        showClearFilter();
+
+    })
+
+    // Category Filter
+    let meatFishLink = document.getElementById('meatFishLink');
+    meatFishLink.addEventListener("click", () => {
+        let productBoxes = document.querySelectorAll('.product-box');
+        productBoxes.forEach((productBox) => {
+            let productCategory = productBox.querySelector('.product-category');
+
+            if (productCategory && (productCategory.textContent === "Meat" || productCategory.textContent === "Fish")) {
+                productBox.style.display = '';
+            } else {
+                productBox.style.display = 'none';
+            }
+
+        });
+        showClearFilter();
+    });
+    let fruitVegetableLink = document.getElementById('fruitVegetableLink');
+    fruitVegetableLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Fruit" || productCategory.textContent == "Vegetable") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+    let breadSpreadLink = document.getElementById('breadSpreadLink');
+    breadSpreadLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Bread" || productCategory.textContent == "Spread") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+    let beverageLink = document.getElementById('beverageLink');
+    beverageLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Beverage") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+    let dairyLink = document.getElementById('dairyLink');
+    dairyLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Dairy") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+    let snackLink = document.getElementById('snackLink');
+    snackLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Snack") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+    let careProductLink = document.getElementById('careProductLink');
+    careProductLink.addEventListener("click", () => {
+        let productBoxes = document.getElementsByClassName('product-box');
+        for (i = 0; i < productBoxes.length; i++) {
+            let productCategory = productBoxes[i].querySelector('.product-category');
+            if (productCategory.textContent == "Care Product") {
+                productBoxes[i].style.display = '';
+            } else {
+                productBoxes[i].style.display = 'none';
+            }
+        }
+        showClearFilter();
+    });
+
+    // Price Slider Filter
     const priceSlider = document.getElementById('price-slider');
     const priceRange = document.getElementById('price-range');
 
     function updateDisplayedPrice() {
-        const selectedPrice = `$${priceSlider.value}`;
-        priceRange.textContent = `Selected Price: ${selectedPrice}`;
+        const selectedPrice = `${priceSlider.value}`;
+        priceRange.textContent = `Selected Price: $${selectedPrice}`;
+
     }
 
     priceSlider.addEventListener('input', updateDisplayedPrice);
     updateDisplayedPrice();
+
+    let priceFilter = document.getElementById('price-slider');
+    priceFilter.addEventListener("click", () => {
+
+        const selectedPrice = `${priceFilter.value}`;
+        let productBoxes = document.querySelectorAll('.product-box');
+        productBoxes.forEach((productBox) => {
+            let productPrice = parseFloat(productBox.querySelector('.product-price').textContent.replace('$', ''));
+            if (productPrice <= selectedPrice) {
+                productBox.style.display = '';
+            } else {
+                productBox.style.display = 'none';
+            }
+        });
+        
+        showClearFilter();
+    });
+
 }
 
 // ============ Handle event functions ===============
@@ -338,9 +497,7 @@ function updateCartState() {
     }
 }
 
-// Categorisation Functions
 // Price slider function
-
 // Function to traverse product boxes and get min and max prices
 function findMinAndMaxPrices() {
     const productBoxes = document.querySelectorAll('.product-box');
@@ -358,6 +515,15 @@ function findMinAndMaxPrices() {
     document.getElementById('price-slider').min = minPrice;
     document.getElementById('price-slider').max = maxPrice;
 
+}
+
+// Clear filter function
+function showClearFilter() {
+    const clearFilterBtn = document.querySelector('.clear-filter-btn');
+    clearFilterBtn.style.display = 'block';
+    clearFilterBtn.addEventListener('click', () => {
+        location.reload();
+    });
 }
 
 
