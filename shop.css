@@ -359,6 +359,10 @@ header {
 }
 
 /* Clear filter button */
+.filter-btn{
+    position: relative;
+    left:450px;
+}
 
 .clear-filter-btn {
     background-color: rgb(253, 253, 253);
