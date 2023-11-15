@@ -79,9 +79,55 @@
             </div>
 
         </div>
+        <div class="categorization-dropdown-wrapper">
+            <div class="categorization-dropdown">
+                <button class="categorybtn">Category</button>
+                <!-- Categorization -->
+                <div class="categorization-dropdown-content">
+                    <!-- category -->
+                    <div class="categories">
+                        <ul>
+                            <a href="#" id="meatFishLink">
+                                <li>Meat & Fish</li>
+                            </a>
+                            <a href="#" id="fruitVegetableLink">
+                                <li>Fruits & Vegetables</li>
+                            </a>
+                            <a href="#" id="breadSpreadLink">
+                                <li>Bread & Spreads</li>
+                            </a>
+                            <a href="#" id="beverageLink">
+                                <li>Beverages</li>
+                            </a>
+                            <a href="#" id="dairyLink">
+                                <li>Dairies</li>
+                            </a>
+                            <a href="#" id="snackLink">
+                                <li>Snacks</li>
+                            </a>
+                            <a href="#" id="careProductLink">
+                                <li>Care Products</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-
+        <div class="pricefilter-dropdown-wrapper">
+            <div class="pricefilter-dropdown">
+                <button class="pricefilterbtn">Filter by Price</button>
+                <!-- Price Slider -->
+                <div class="pricefilter-dropdown-content">
+                    <!-- Price Slider -->
+                    <div class="price-slider-section">
+                        <label for="price-slider">Price Range:</label><br>
+                        <input type="range" id="price-slider" min="1" max="100" step="1" value="1">
+                        <p id="price-range">Selected Price: $0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="main-content">
 
@@ -128,146 +174,146 @@
                 <button class="clear-filter-btn">Clear Filter<span><i class="fa-solid fa-xmark"
                             style="color: #858585; margin-left: 5px;"></i></span></button>
 
-            <div class="shop-content">
-                <!-- box 1 -->
-                <div class="product-box">
-                    <img src="images/1.png" alt="" class="product-img" onclick="showPopup('popup1')">
-                    <h2 class="product-title">Strawberry</h2>
-                    <h3 class="product-category">Fruit</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 2 -->
-                <div class="product-box">
-                    <img src="images/2.png" alt="" class="product-img" onclick="showPopup('popup2')">
-                    <h2 class="product-title">Onion</h2>
-                    <h3 class="product-category">Vegetable</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
+                <div class="shop-content">
+                    <!-- box 1 -->
+                    <div class="product-box">
+                        <img src="images/1.png" alt="" class="product-img" onclick="showPopup('popup1')">
+                        <h2 class="product-title">Strawberry</h2>
+                        <h3 class="product-category">Fruit</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 2 -->
+                    <div class="product-box">
+                        <img src="images/2.png" alt="" class="product-img" onclick="showPopup('popup2')">
+                        <h2 class="product-title">Onion</h2>
+                        <h3 class="product-category">Vegetable</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
 
-                </div>
-                <!-- box 3 -->
-                <div class="product-box">
-                    <img src="images/3.png" alt="" class="product-img" onclick="showPopup('popup3')">
-                    <h2 class="product-title">Tomato</h2>
-                    <h3 class="product-category">Fruit</h3>
-                    <span class="product-price">$5.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 4 -->
-                <div class="product-box">
-                    <img src="images/4.png" alt="" class="product-img" onclick="showPopup('popup4')">
-                    <h2 class="product-title">Orange</h2>
-                    <h3 class="product-category">Fruit</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 5 -->
-                <div class="product-box">
-                    <img src="images/5.png" alt="" class="product-img" onclick="showPopup('popup5')">
-                    <h2 class="product-title">Broccoli</h2>
-                    <h3 class="product-category">Vegetable</h3>
-                    <span class="product-price">$35.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 6 -->
-                <div class="product-box">
-                    <img src="images/6.png" alt="" class="product-img" onclick="showPopup('popup6')">
-                    <h2 class="product-title">Chicken</h2>
-                    <h3 class="product-category">Meat</h3>
-                    <span class="product-price">$20.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 7 -->
-                <div class="product-box">
-                    <img src="images/7.png" alt="" class="product-img" onclick="showPopup('popup7')">
-                    <h2 class="product-title">Beef</h2>
-                    <h3 class="product-category">Meat</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 8 -->
-                <div class="product-box">
-                    <img src="images/8.png" alt="" class="product-img" onclick="showPopup('popup8')">
-                    <h2 class="product-title">Salmon</h2>
-                    <h3 class="product-category">Fish</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 9 -->
-                <div class="product-box">
-                    <img src="images/9.png" alt="" class="product-img" onclick="showPopup('popup9')">
-                    <h2 class="product-title">Bread </h2>
-                    <h3 class="product-category">Bread</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 10 -->
-                <div class="product-box">
-                    <img src="images/10.png" alt="" class="product-img" onclick="showPopup('popup10')">
-                    <h2 class="product-title">Butter Spread</h2>
-                    <h3 class="product-category">Spread</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 11 -->
-                <div class="product-box">
-                    <img src="images/11.png" alt="" class="product-img" onclick="showPopup('popup11')">
-                    <h2 class="product-title">Mineral Water</h2>
-                    <h3 class="product-category">Beverage</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 12 -->
-                <div class="product-box">
-                    <img src="images/12.png" alt="" class="product-img" onclick="showPopup('popup12')">
-                    <h2 class="product-title">Cola</h2>
-                    <h3 class="product-category">Beverage</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 13 -->
-                <div class="product-box">
-                    <img src="images/13.png" alt="" class="product-img" onclick="showPopup('popup13')">
-                    <h2 class="product-title">Cheddar</h2>
-                    <h3 class="product-category">Dairy</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 14 -->
-                <div class="product-box">
-                    <img src="images/14.png" alt="" class="product-img" onclick="showPopup('popup14')">
-                    <h2 class="product-title">Super Ring</h2>
-                    <h3 class="product-category">Snack</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 15 -->
-                <div class="product-box">
-                    <img src="images/15.png" alt="" class="product-img" onclick="showPopup('popup15')">
-                    <h2 class="product-title">Potato Chips</h2>
-                    <h3 class="product-category">Snack</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 16 -->
-                <div class="product-box">
-                    <img src="images/16.png" alt="" class="product-img" onclick="showPopup('popup16')">
-                    <h2 class="product-title">Facial Cleanser</h2>
-                    <h3 class="product-category">Care Product</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </div>
-                <!-- box 17 -->
-                <div class="product-box">
-                    <img src="images/17.png" alt="" class="product-img" onclick="showPopup('popup17')">
-                    <h2 class="product-title">Facial Toner</h2>
-                    <h3 class="product-category">Care Product</h3>
-                    <span class="product-price">$10.00</span>
-                    <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 3 -->
+                    <div class="product-box">
+                        <img src="images/3.png" alt="" class="product-img" onclick="showPopup('popup3')">
+                        <h2 class="product-title">Tomato</h2>
+                        <h3 class="product-category">Fruit</h3>
+                        <span class="product-price">$5.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 4 -->
+                    <div class="product-box">
+                        <img src="images/4.png" alt="" class="product-img" onclick="showPopup('popup4')">
+                        <h2 class="product-title">Orange</h2>
+                        <h3 class="product-category">Fruit</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 5 -->
+                    <div class="product-box">
+                        <img src="images/5.png" alt="" class="product-img" onclick="showPopup('popup5')">
+                        <h2 class="product-title">Broccoli</h2>
+                        <h3 class="product-category">Vegetable</h3>
+                        <span class="product-price">$35.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 6 -->
+                    <div class="product-box">
+                        <img src="images/6.png" alt="" class="product-img" onclick="showPopup('popup6')">
+                        <h2 class="product-title">Chicken</h2>
+                        <h3 class="product-category">Meat</h3>
+                        <span class="product-price">$20.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 7 -->
+                    <div class="product-box">
+                        <img src="images/7.png" alt="" class="product-img" onclick="showPopup('popup7')">
+                        <h2 class="product-title">Beef</h2>
+                        <h3 class="product-category">Meat</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 8 -->
+                    <div class="product-box">
+                        <img src="images/8.png" alt="" class="product-img" onclick="showPopup('popup8')">
+                        <h2 class="product-title">Salmon</h2>
+                        <h3 class="product-category">Fish</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 9 -->
+                    <div class="product-box">
+                        <img src="images/9.png" alt="" class="product-img" onclick="showPopup('popup9')">
+                        <h2 class="product-title">Bread </h2>
+                        <h3 class="product-category">Bread</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 10 -->
+                    <div class="product-box">
+                        <img src="images/10.png" alt="" class="product-img" onclick="showPopup('popup10')">
+                        <h2 class="product-title">Butter Spread</h2>
+                        <h3 class="product-category">Spread</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 11 -->
+                    <div class="product-box">
+                        <img src="images/11.png" alt="" class="product-img" onclick="showPopup('popup11')">
+                        <h2 class="product-title">Mineral Water</h2>
+                        <h3 class="product-category">Beverage</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 12 -->
+                    <div class="product-box">
+                        <img src="images/12.png" alt="" class="product-img" onclick="showPopup('popup12')">
+                        <h2 class="product-title">Cola</h2>
+                        <h3 class="product-category">Beverage</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 13 -->
+                    <div class="product-box">
+                        <img src="images/13.png" alt="" class="product-img" onclick="showPopup('popup13')">
+                        <h2 class="product-title">Cheddar</h2>
+                        <h3 class="product-category">Dairy</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 14 -->
+                    <div class="product-box">
+                        <img src="images/14.png" alt="" class="product-img" onclick="showPopup('popup14')">
+                        <h2 class="product-title">Super Ring</h2>
+                        <h3 class="product-category">Snack</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 15 -->
+                    <div class="product-box">
+                        <img src="images/15.png" alt="" class="product-img" onclick="showPopup('popup15')">
+                        <h2 class="product-title">Potato Chips</h2>
+                        <h3 class="product-category">Snack</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 16 -->
+                    <div class="product-box">
+                        <img src="images/16.png" alt="" class="product-img" onclick="showPopup('popup16')">
+                        <h2 class="product-title">Facial Cleanser</h2>
+                        <h3 class="product-category">Care Product</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <!-- box 17 -->
+                    <div class="product-box">
+                        <img src="images/17.png" alt="" class="product-img" onclick="showPopup('popup17')">
+                        <h2 class="product-title">Facial Toner</h2>
+                        <h3 class="product-category">Care Product</h3>
+                        <span class="product-price">$10.00</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <modal>

@@ -35,9 +35,38 @@ dropDownBtn.addEventListener('click', () => {
 
 // Close the dropdown if the user clicks outside of it
 window.addEventListener('click', function (event) {
-    if (event.target !== dropDownBtn) {
+    if (!event.target.matches('.dropbtn')) {
         dropdownContent.classList.remove('show');
-        isActiveFilter = false;
+    }
+});
+
+// Category button
+const dropDownCBtn = document.querySelector(".categorization-dropdown");
+const dropdownCContent = document.querySelector(".categorization-dropdown-content");
+
+dropDownCBtn.addEventListener('click', () => {
+    dropdownCContent.classList.toggle('show');
+});
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener('click', function (event) {
+    if (!event.target.matches('.categorybtn')) {
+        dropdownCContent.classList.remove('show');
+    }
+});
+
+// Filter By Price button
+const dropDownFBtn = document.querySelector(".pricefilter-dropdown");
+const dropdownFContent = document.querySelector(".pricefilter-dropdown-content");
+
+dropDownFBtn.addEventListener('click', () => {
+    dropdownFContent.classList.toggle('show');
+});
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener('click', function (event) {
+    if (!event.target.matches('.pricefilterbtn')) {
+        dropdownFContent.classList.remove('show');
     }
 });
 
