@@ -214,114 +214,123 @@ function addEvents() {
     })
 
     // Category Filter
-    let meatFishLink = document.getElementById('meatFishLink');
-    meatFishLink.addEventListener("click", () => {
-        let productBoxes = document.querySelectorAll('.product-box');
-        productBoxes.forEach((productBox) => {
-            let productCategory = productBox.querySelector('.product-category');
+    let meatFishLinks = document.querySelectorAll('.meatFishLink');
+    meatFishLinks.forEach((meatFishLink) => {
+        meatFishLink.addEventListener("click", () => {
+            let productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                let productCategory = productBox.querySelector('.product-category');
 
-            if (productCategory && (productCategory.textContent === "Meat" || productCategory.textContent === "Fish")) {
-                productBox.style.display = '';
-            } else {
-                productBox.style.display = 'none';
-            }
+                if (productCategory && (productCategory.textContent === "Meat" || productCategory.textContent === "Fish")) {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
 
+            });
+            showClearFilter();
         });
-        showClearFilter();
     });
-    let fruitVegetableLink = document.getElementById('fruitVegetableLink');
-    fruitVegetableLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Fruit" || productCategory.textContent == "Vegetable") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
+    let fruitVegetableLinks = document.querySelectorAll('.fruitVegetableLink');
+    fruitVegetableLinks.forEach((fruitVegetableLink) => {
+        fruitVegetableLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Fruit" || productCategory.textContent == "Vegetable") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
             }
-        }
-        showClearFilter();
+            showClearFilter();
+        });
     });
-    let breadSpreadLink = document.getElementById('breadSpreadLink');
-    breadSpreadLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Bread" || productCategory.textContent == "Spread") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
+    let breadSpreadLinks = document.querySelectorAll('.breadSpreadLink');
+    breadSpreadLinks.forEach((breadSpreadLink) => {
+        breadSpreadLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Bread" || productCategory.textContent == "Spread") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
             }
-        }
-        showClearFilter();
+            showClearFilter();
+        });
+    })
+
+    let beverageLinks = document.querySelectorAll('.beverageLink');
+    beverageLinks.forEach((beverageLink) => {
+        beverageLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Beverage") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
+            }
+            showClearFilter();
+        });
     });
-    let beverageLink = document.getElementById('beverageLink');
-    beverageLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Beverage") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
+
+    let dairyLinks = document.querySelectorAll('.dairyLink');
+    dairyLinks.forEach((dairyLink) => {
+        dairyLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Dairy") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
             }
-        }
-        showClearFilter();
+            showClearFilter();
+        });
     });
-    let dairyLink = document.getElementById('dairyLink');
-    dairyLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Dairy") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
+
+    let snackLinks = document.querySelectorAll('.snackLink');
+    snackLinks.forEach((snackLink) => {
+        snackLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Snack") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
             }
-        }
-        showClearFilter();
+            showClearFilter();
+        });
     });
-    let snackLink = document.getElementById('snackLink');
-    snackLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Snack") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
+
+    let careProductLinks = document.querySelectorAll('.careProductLink');
+    careProductLinks.forEach((careProductLink) => {
+        careProductLink.addEventListener("click", () => {
+            let productBoxes = document.getElementsByClassName('product-box');
+            for (i = 0; i < productBoxes.length; i++) {
+                let productCategory = productBoxes[i].querySelector('.product-category');
+                if (productCategory.textContent == "Care Product") {
+                    productBoxes[i].style.display = '';
+                } else {
+                    productBoxes[i].style.display = 'none';
+                }
             }
-        }
-        showClearFilter();
-    });
-    let careProductLink = document.getElementById('careProductLink');
-    careProductLink.addEventListener("click", () => {
-        let productBoxes = document.getElementsByClassName('product-box');
-        for (i = 0; i < productBoxes.length; i++) {
-            let productCategory = productBoxes[i].querySelector('.product-category');
-            if (productCategory.textContent == "Care Product") {
-                productBoxes[i].style.display = '';
-            } else {
-                productBoxes[i].style.display = 'none';
-            }
-        }
-        showClearFilter();
+            showClearFilter();
+        });
     });
 
     // Price Slider Filter
     const priceSlider = document.getElementById('price-slider');
     const priceRange = document.getElementById('price-range');
-
-    function updateDisplayedPrice() {
-        const selectedPrice = `${priceSlider.value}`;
-        priceRange.textContent = `Selected Price: $${selectedPrice}`;
-
-    }
-
-    priceSlider.addEventListener('input', updateDisplayedPrice);
-    updateDisplayedPrice();
-
     let priceFilter = document.getElementById('price-slider');
+
     priceFilter.addEventListener("click", () => {
 
         const selectedPrice = `${priceFilter.value}`;
@@ -334,10 +343,49 @@ function addEvents() {
                 productBox.style.display = 'none';
             }
         });
-        
+
         showClearFilter();
     });
 
+    function updateDisplayedPrice() {
+        const selectedPrice = `${priceSlider.value}`;
+        priceRange.textContent = `Selected Price: $${selectedPrice}`;
+
+    }
+
+    priceSlider.addEventListener('input', updateDisplayedPrice);
+    updateDisplayedPrice();
+
+    // Price Slider Filter xs
+    const priceSliderXS = document.getElementById('price-slider-xs');
+    const priceRangeXS = document.getElementById('price-range-xs');
+    let priceFilterXS = document.getElementById('price-slider-xs');
+
+    priceFilterXS.addEventListener("click", () => {
+
+        const selectedPrice2 = `${priceFilterXS.value}`;
+        let productBoxes2 = document.querySelectorAll('.product-box');
+        productBoxes2.forEach((productBox) => {
+            let productPrice2 = parseFloat(productBox.querySelector('.product-price').textContent.replace('$', ''));
+            if (productPrice2 <= selectedPrice2) {
+                productBox.style.display = '';
+            } else {
+                productBox.style.display = 'none';
+            }
+        });
+
+        showClearFilter();
+    });
+
+    function updateDisplayedPrice2() {
+        const selectedPrice = `${priceSliderXS.value}`;
+        priceRangeXS.textContent = `Selected Price: $${selectedPrice}`;
+
+    }
+
+    priceSliderXS.addEventListener('input', updateDisplayedPrice2);
+    updateDisplayedPrice2();
+   
 }
 
 // ============ Handle event functions ===============
@@ -484,8 +532,6 @@ function handle_clearOrder() {
 }
 
 
-
-
 // ============ Update and re-render functions ===============
 function renderCartItems() {
     const cartContent = cart.querySelector('.cart-content');
@@ -543,7 +589,8 @@ function findMinAndMaxPrices() {
     // Update the input range values
     document.getElementById('price-slider').min = minPrice;
     document.getElementById('price-slider').max = maxPrice;
-
+    document.getElementById('price-slider-xs').min = minPrice;
+    document.getElementById('price-slider-xs').max = maxPrice;
 }
 
 // Clear filter function

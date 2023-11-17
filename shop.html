@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABCStore | Shop</title>
     <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="general.css">
     <script src="https://kit.fontawesome.com/b299194d68.js" crossorigin="anonymous"></script>
 </head>
 
@@ -58,14 +59,16 @@
         </div>
     </header>
 
+    <!-- Body -->
     <section class="shop">
         <h1 class="section-title">Shop Products</h1>
 
+        <!-- Filter section -->
         <div class="filter">
-
+            <!-- Search bar -->
             <input type="text" placeholder="Search..." name="search" id="myInput" style="user-select: text"
                 onkeyup="searchFunction()">
-
+            <!-- Sort by button -->
             <div class="dropdown">
                 <button class="dropbtn">Sort by<span><i class="fa-solid fa-arrow-down"
                             style="color: #858585; margin-left: 5px;"></i></span></button>
@@ -79,33 +82,36 @@
             </div>
 
         </div>
+
+        <!-- Category section XS  -->
         <div class="categorization-dropdown-wrapper">
+
             <div class="categorization-dropdown">
+                <!-- Category button -->
                 <button class="categorybtn">Category</button>
-                <!-- Categorization -->
+                <!-- Category content -->
                 <div class="categorization-dropdown-content">
-                    <!-- category -->
                     <div class="categories">
                         <ul>
-                            <a href="#" id="meatFishLink">
+                            <a href="#" class="meatFishLink">
                                 <li>Meat & Fish</li>
                             </a>
-                            <a href="#" id="fruitVegetableLink">
+                            <a href="#" class="fruitVegetableLink">
                                 <li>Fruits & Vegetables</li>
                             </a>
-                            <a href="#" id="breadSpreadLink">
+                            <a href="#" class="breadSpreadLink">
                                 <li>Bread & Spreads</li>
                             </a>
-                            <a href="#" id="beverageLink">
+                            <a href="#" class="beverageLink">
                                 <li>Beverages</li>
                             </a>
-                            <a href="#" id="dairyLink">
+                            <a href="#" class="dairyLink">
                                 <li>Dairies</li>
                             </a>
-                            <a href="#" id="snackLink">
+                            <a href="#" class="snackLink">
                                 <li>Snacks</li>
                             </a>
-                            <a href="#" id="careProductLink">
+                            <a href="#" class="careProductLink">
                                 <li>Care Products</li>
                             </a>
                         </ul>
@@ -114,55 +120,60 @@
             </div>
         </div>
 
+        <!-- Filter Section XS -->
         <div class="pricefilter-dropdown-wrapper">
+
             <div class="pricefilter-dropdown">
+                <!-- Filter button -->
                 <button class="pricefilterbtn">Filter by Price</button>
-                <!-- Price Slider -->
+                <!-- Price Slider content -->
                 <div class="pricefilter-dropdown-content">
-                    <!-- Price Slider -->
+
                     <div class="price-slider-section">
-                        <label for="price-slider">Price Range:</label><br>
-                        <input type="range" id="price-slider" min="1" max="100" step="1" value="1">
-                        <p id="price-range">Selected Price: $0</p>
+                        <label for="price-slider-xs">Price Range:</label><br>
+                        <input type="range" id="price-slider-xs" min="1" max="100" step="1" value="1">
+                        <p id="price-range-xs">Selected Price: $0</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Main -->
         <div class="main-content">
 
-            <!-- Categorization -->
+            <!-- Category -->
             <div class="categorization">
-                <!-- category -->
+
                 <div class="categories">
                     <h2>Categories</h2>
                     <ul>
-                        <a href="#" id="meatFishLink">
+                        <a href="#" class="meatFishLink">
                             <li>Meat & Fish</li>
                         </a>
-                        <a href="#" id="fruitVegetableLink">
+                        <a href="#" class="fruitVegetableLink">
                             <li>Fruits & Vegetables</li>
                         </a>
-                        <a href="#" id="breadSpreadLink">
+                        <a href="#" class="breadSpreadLink">
                             <li>Bread & Spreads</li>
                         </a>
-                        <a href="#" id="beverageLink">
+                        <a href="#" class="beverageLink">
                             <li>Beverages</li>
                         </a>
-                        <a href="#" id="dairyLink">
+                        <a href="#" class="dairyLink">
                             <li>Dairies</li>
                         </a>
-                        <a href="#" id="snackLink">
+                        <a href="#" class="snackLink">
                             <li>Snacks</li>
                         </a>
-                        <a href="#" id="careProductLink">
+                        <a href="#" class="careProductLink">
                             <li>Care Products</li>
                         </a>
                     </ul>
                 </div><br>
-                <!-- price slider -->
+
+                <!-- Price slider section -->
                 <div class="filter-by-price">
-                    <h2>Filter by Price</h2><br>
+                    <h2>Filter by Price</h2><br>    
                     <div>
                         <label for="price-slider">Price Range:</label><br>
                         <input type="range" id="price-slider" min="1" max="100" step="1" value="1">
@@ -170,10 +181,15 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Shop -->
             <div class="shop-content-wrapper">
+
+                <!-- Clear filter button -->
                 <button class="clear-filter-btn">Clear Filter<span><i class="fa-solid fa-xmark"
                             style="color: #858585; margin-left: 5px;"></i></span></button>
 
+                <!-- Products Section  -->
                 <div class="shop-content">
                     <!-- box 1 -->
                     <div class="product-box">
@@ -316,8 +332,10 @@
             </div>
         </div>
     </section>
+
     <modal>
-        <!-- Modal -->
+
+        <!-- Modal Section -->
         <!-- box 1 -->
         <div id="popup1" class="popup" onclick="hidePopup('popup1')">
             <div class="popup-content">
