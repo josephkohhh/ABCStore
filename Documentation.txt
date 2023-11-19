@@ -1,0 +1,85 @@
+Documentation for javascript code
+
+------------------------------------------------------------------------------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', start);
+
+This code is passing a reference to the start function as the callback. 
+Hence you are saying: "When the DOMContentLoaded event occurs, execute the start function." 
+This ensures that the start function is invoked at the appropriate time—when the DOM has been fully loaded and is ready for manipulation.
+
+------------------------------------------------------------------------------------------------------------------------
+
+querySelector vs getElementById
+
+Scenario:
+
+<div class="navbar">
+    <a href="#" data-target="home">Home</a>
+    <a href="#" data-target="about">About</a>
+    <a href="#" data-target="contact">Contact</a>
+</div>
+
+const navbarLinks = document.querySelectorAll('.navbar a[data-target]');
+
+If you were using getElementById in this scenario, it wouldn't be directly suitable 
+because it's specifically designed for selecting elements by their ID, and it doesn't support more complex CSS selector patterns.
+
+------------------------------------------------------------------------------------------------------------------------
+
+const vs let
+
+const (constant): Variables declared with const are block-scoped and cannot be reassigned after they are initialized.
+They must be assigned a value when declared. This makes const suitable for values that should not change throughout the block or function.
+
+let: Variables declared with let are also block-scoped but can be reassigned. They do not require an initial value. 
+let is typically used for variables that may change their value during the execution of the block or function.
+
+------------------------------------------------------------------------------------------------------------------------
+
+function searchFunction() {
+    const input = document.getElementById('myInput').value.toUpperCase();
+    const productBoxes = document.getElementsByClassName('product-box');
+
+    Array.from(productBoxes).forEach(box => {
+        const title = box.querySelector('.product-title').textContent || box.querySelector('.product-title').innerText;
+        box.style.display = title.toUpperCase().includes(input) ? '' : 'none';
+    });
+}
+
+1. Get the user input from the HTML input element with the id 'myInput' and convert it to uppercase
+2. Get all elements with the class 'product-box' and store them in the productBoxes variable as HTMLCollection
+3. Convert the HTMLCollection to an array and iterate over each product box
+4. Get the text content of the first element with the class 'product-title' within the current product box
+5. Check if the uppercase input is present in the uppercase product title. If true, display the current product box; otherwise, hide it
+
+------------------------------------------------------------------------------------------------------------------------
+
+    const highToLow = document.getElementById('highToLow');
+
+    highToLow.addEventListener('click', () => {
+        const shopContent = document.querySelector('.shop-content');
+        const productBoxes = Array.from(document.getElementsByClassName('product-box'));
+
+        productBoxes.sort((a, b) => {
+            const priceA = parseFloat(a.querySelector('.product-price').textContent.replace('$', ''));
+            const priceB = parseFloat(b.querySelector('.product-price').textContent.replace('$', ''));
+            return priceB - priceA;
+        });
+
+        productBoxes.forEach((productBox) => {
+            shopContent.appendChild(productBox);
+        });
+
+    });
+
+1. Gets a reference to the HTML element with the ID 'highToLow'. 
+2. When clicked, the code inside the callback function will be executed.
+3. Gets a reference to the HTML element with the class 'shop-content'. 
+   Presumably, this is the container element that holds the product boxes and will be used to append the sorted product boxes.
+4. Converts the resulting HTMLCollection to an array using Array.from().
+5. Sorting is done by comparing prices (priceB - priceA), the product boxes with higher prices will come first in the sorted array.
+6. The productBoxes.forEach((productBox) => { ... }) loop iterates over the sorted product boxes.
+   Inside the loop, shopContent.appendChild(productBox); appends each product box to the 'shop-content' container.
+
+------------------------------------------------------------------------------------------------------------------------

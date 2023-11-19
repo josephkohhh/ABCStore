@@ -859,6 +859,22 @@ header {
     /* Shop content related */
     .shop-content {
         grid-template-columns: repeat(3, 120px);
+        grid-auto-rows: 250px;
+    }
+
+    .product-box {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        text-align: center;
+    }
+    .add-to-cart-btn{
+        width:4rem;
+        font-size: 10px;
+    }
+    .add-to-cart-btn:hover {
+        width: 4.5rem;
+        padding: 2px;
     }
 
 }
@@ -932,6 +948,14 @@ header {
 
     .shop-content {
         grid-template-columns: repeat(2, 130px);
+        grid-auto-rows: 250px;
+
+    }
+
+    .product-box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 
 }
@@ -993,6 +1017,21 @@ header {
 
     .shop-content {
         grid-template-columns: repeat(2, 100px);
+    }
+
+    .product-box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .add-to-cart-btn{
+        width:3rem;
+        font-size: 10px;
+    }
+    .add-to-cart-btn:hover {
+        width: 4rem;
+        padding: 2px;
     }
 
     /* Modal related */
