@@ -7,6 +7,7 @@
   - searchFunction(): Implements product search based on user input.
   - sortByButtonOpenClose(): Handles the opening and closing of the sort-by dropdown and provides functionality
                              for sorting products by price in both ascending and descending order.
+  - modalOpenClose(): Manages the opening and closing of the product modals.
 
   Note: This documentation provides a high-level understanding of the code's purpose and functions.
   For detailed information, please refer to the comments within each function.
@@ -45,30 +46,38 @@ function cartOpenClose() {
     });
 }
 
+// Function for modal open/close 
 function modalOpenClose() {
     const productBoxes = document.querySelectorAll('.product-box');
+    const popups = document.querySelectorAll('.popup');
     const closeButtons = document.querySelectorAll('.close');
-    const popup = document.querySelector('.popup');
 
+    // Opens the product's modal 
     productBoxes.forEach(function (box) {
         box.addEventListener('click', function () {
             const popupId = this.getAttribute('data-popup');
             const popup = document.getElementById(popupId);
             popup.style.display = 'flex';
         });
-
     });
 
-/*
-    Insert logic to close popup after clicking 
-*/
+    // Check if the click is outside the popup-content
+    popups.forEach(popup => {
+        popup.addEventListener('click', (event) => {
+            const popupContent = popup.querySelector('.popup-content');
+            if (!popupContent.contains(event.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    });
 
+    // Check if the close button is clicked
     closeButtons.forEach(button => {
         button.addEventListener('click', () => {
+            const popup = button.closest('.popup');
             popup.style.display = 'none';
         });
     });
-    
 }
 
 // Function for searching products 
