@@ -8,6 +8,9 @@
   - sortByButtonOpenClose(): Handles the opening and closing of the sort-by dropdown and provides functionality
                              for sorting products by price in both ascending and descending order.
   - modalOpenClose(): Manages the opening and closing of the product modals.
+  - categorySideMenu(): Filter the products based on category 
+  - categoryButtonXS(): Manages the opening and closing of the category button (XS version)
+  - filterButtonXS(): Manges the opening and closing of the price filter button (XS version)
 
   Note: This documentation provides a high-level understanding of the code's purpose and functions.
   For detailed information, please refer to the comments within each function.
@@ -28,6 +31,9 @@ function start() {
     searchFunction();
     sortByButtonOpenClose();
     modalOpenClose();
+    categorySideMenu();
+    categoryButtonXS();
+    filterButtonXS();
 }
 
 // ============ Functions ===============
@@ -145,4 +151,138 @@ function sortByButtonOpenClose() {
 
     });
 
-}   
+}
+// Function for sort by button open/close
+function categorySideMenu() {
+    const meatFishLinks = document.querySelectorAll('.meatFishLink');
+    const fruitVegetableLinks = document.querySelectorAll('.fruitVegetableLink');
+    const breadSpreadLinks = document.querySelectorAll('.breadSpreadLink');
+    const beverageLinks = document.querySelectorAll('.beverageLink');
+    const dairyLinks = document.querySelectorAll('.dairyLink');
+    const snackLinks = document.querySelectorAll('.snackLink');
+    const careProductLinks = document.querySelectorAll('.careProductLink');
+
+    meatFishLinks.forEach((meatFishLink) => {
+        meatFishLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+
+                if (productCategory.textContent === "Meat" || productCategory.textContent === "Fish") {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    fruitVegetableLinks.forEach((fruitVegetableLink) => {
+        fruitVegetableLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+
+                if (productCategory.textContent === "Fruit" || productCategory.textContent === "Vegetable") {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    breadSpreadLinks.forEach((breadSpreadLink) => {
+        breadSpreadLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+                if (productCategory.textContent === "Bread" || productCategory.textContent === "Spread") {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
+
+            });
+        });
+    });
+
+    beverageLinks.forEach((beverageLink) => {
+        beverageLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+                if (productCategory.textContent === "Beverage") {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    dairyLinks.forEach((dairyLink) => {
+        dairyLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+                if (productCategory.textContent === "Dairy") {
+                    productBox.style.display = '';
+                } else {
+                    productBox.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    snackLinks.forEach((snackLink) => {
+        snackLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+                productCategory.textContent === "Snack" ? productBox.style.display = '' : productBox.style.display = 'none';
+            });
+        });
+    });
+
+    careProductLinks.forEach((careProductLink) => {
+        careProductLink.addEventListener("click", () => {
+            const productBoxes = document.querySelectorAll('.product-box');
+            productBoxes.forEach((productBox) => {
+                const productCategory = productBox.querySelector('.product-category');
+                productCategory.textContent === "Care Product" ? productBox.style.display = '' : productBox.style.display = 'none';
+            });
+        });
+    });
+
+}
+
+// Function for category button open/close
+function categoryButtonXS() {
+    const categoryBtn = document.querySelector('.categorybtn');
+    const categoryContent = document.querySelector('.categorization-dropdown-content');
+
+    categoryBtn.addEventListener("click", () => {
+        categoryContent.classList.toggle('show');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.categorybtn'))
+            categoryContent.classList.remove('show');
+    });
+}
+
+// Function for filter price button open/close
+function filterButtonXS(){
+    const pricefilterbtn = document.querySelector('.pricefilterbtn');
+    const pricefilterContent = document.querySelector('.pricefilter-dropdown-content');
+
+    pricefilterbtn.addEventListener("click",()=>{
+        pricefilterContent.classList.toggle('show');
+    });
+
+    window.addEventListener('click',(event) => {
+        if (!event.target.matches('.pricefilterbtn'))
+        pricefilterContent.classList.remove('show');
+    });
+}

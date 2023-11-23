@@ -219,7 +219,7 @@ function addEvents() {
             productBoxes.forEach((productBox) => {
                 let productCategory = productBox.querySelector('.product-category');
 
-                if (productCategory && (productCategory.textContent === "Meat" || productCategory.textContent === "Fish")) {
+                if (productCategory.textContent === "Meat" || productCategory.textContent === "Fish") {
                     productBox.style.display = '';
                 } else {
                     productBox.style.display = 'none';
