@@ -529,7 +529,6 @@ function handle_clearOrder() {
 
 }
 
-
 // ============ Update and re-render functions ===============
 function renderCartItems() {
     const cartContent = cart.querySelector('.cart-content');

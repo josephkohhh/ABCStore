@@ -83,3 +83,34 @@ function searchFunction() {
    Inside the loop, shopContent.appendChild(productBox); appends each product box to the 'shop-content' container.
 
 ------------------------------------------------------------------------------------------------------------------------
+
+    let minPrice = Number.MAX_VALUE; 
+    let maxPrice = Number.MIN_VALUE; 
+
+1. Declare and initializes minPrice to the maximum possible value that can be represented in js
+2. Declare and initializes maxPrice to the minimum possible value that can be represented in js
+
+    const productBoxes = document.querySelectorAll('.product-box');
+    productBoxes.forEach((productBox) => {
+        const price = parseFloat(productBox.querySelector('.product-price').textContent.replace('$', ''));
+        minPrice = Math.min(minPrice, price); 
+        maxPrice = Math.max(maxPrice, price); 
+    });
+
+Use these variables to compare and update them as iterate through a list of prices to find the minimum and maximum values. 
+This is a common and efficient approach for such tasks.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ localStorage.setItem('cartList', JSON.stringify(cartList));
+
+ 1. localStorage is a built-in web storage object in web browsers that allows you to store key-value pairs locally on the user's browser.
+ 2. setItem is a method of localStorage that allows you to store a key-value pair.
+    In this case, the key is the string 'cartList', and the value is the serialized JSON representation of the cartList array.
+3. JSON.stringify(cartList) converts the cartList array into a JSON-formatted string. 
+   This step is necessary because localStorage can only store strings as values.    
+   The JSON.stringify function converts the array to a string representation that can later be parsed back into an array.
+
+This can be useful for scenarios like storing user preferences, shopping cart items, or any other data that you want to persist between page reloads or sessions.
+
+------------------------------------------------------------------------------------------------------------------------
