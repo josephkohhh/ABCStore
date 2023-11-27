@@ -102,15 +102,58 @@ This is a common and efficient approach for such tasks.
 
 ------------------------------------------------------------------------------------------------------------------------
 
- localStorage.setItem('cartList', JSON.stringify(cartList));
+     localStorage.setItem('cartList', JSON.stringify(cartList));
 
  1. localStorage is a built-in web storage object in web browsers that allows you to store key-value pairs locally on the user's browser.
  2. setItem is a method of localStorage that allows you to store a key-value pair.
     In this case, the key is the string 'cartList', and the value is the serialized JSON representation of the cartList array.
-3. JSON.stringify(cartList) converts the cartList array into a JSON-formatted string. 
-   This step is necessary because localStorage can only store strings as values.    
-   The JSON.stringify function converts the array to a string representation that can later be parsed back into an array.
+ 3. JSON.stringify(cartList) converts the cartList array into a JSON-formatted string. 
+    This step is necessary because localStorage can only store strings as values.    
+    The JSON.stringify function converts the array to a string representation that can later be parsed back into an array.
 
 This can be useful for scenarios like storing user preferences, shopping cart items, or any other data that you want to persist between page reloads or sessions.
+
+------------------------------------------------------------------------------------------------------------------------
+
+     const productTitle = this.parentElement.querySelector('.cart-product-title').textContent;
+     this.parentElement.remove();
+
+     cartList = cartList.filter((element) => element.title !== productTitle);
+
+1. 'this' refers to the element that triggered the event (the element to which the event listener is attached). 
+   ParentElement retrieves the parent element of the current element.
+2. It removes the parent element of the element that triggered the event. (Cartbox)
+3. Array filter function creates a new array with all elements that pass the condition provided by a function.
+
+------------------------------------------------------------------------------------------------------------------------
+
+     let newQuantity = parseInt(this.value);
+     newQuantity = isNaN(newQuantity) ? 1 : Math.max(1, Math.min(newQuantity, 10));
+
+1. The parseInt function is used to convert the input value to an integer. It will return NaN if is non-integer.
+2. If is non-integer, newQuantity = 1. If is integer, it will be between 1 to 10.
+3. The Math.max(1, ...) part ensures it doesnt go below 1.
+4. The Math.min(newQuantity, 10) part ensures it doesnt exceed 10.
+
+------------------------------------------------------------------------------------------------------------------------
+
+     function renderCartItems() {
+      const cartContent = document.querySelector('.cart-content');
+      cartContent.innerHTML = ""; 
+
+      cartList.forEach((cartItem) => {
+         const cartItemHTML = cartItemComponent(cartItem.title, cartItem.price, cartItem.imgSrc, cartItem.quantity);
+         cartContent.insertAdjacentHTML('beforeend', cartItemHTML);
+    });
+}
+
+
+1. Select the HTML element with class of 'cart-content'.
+2. Set the inner HTML of 'cart-content' to an empty string, effectively removing any previous content.
+3. Iterate over each item in the 'cartList' array.
+4. For each item, it calls the cartItemComponent function with item's title, price, image source, and quantity. 
+   This function returns an HTML string representing the structure of a cart item.
+5. cartContent.insertAdjacentHTML('beforeend', cartItemHTML);: This line appends the generated HTML string (cartItemHTML) to the 'cart-content' element. 
+   The insertion is done at the end of the existing content, ensuring that new items are added below the previously rendered items.
 
 ------------------------------------------------------------------------------------------------------------------------

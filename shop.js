@@ -14,16 +14,24 @@
   - setMinMaxPrice(): Get and set min and max value for price slider
   - filterPriceRange(): Products will be filtered based selected price 
   - clearFilter(): Remove all filters by reloading page
+  - updateCartState(): Check if cart is empty or not and manages cart state 
   - cartEvents(): Manages all click events that is related to the shopping cart
-  - addToCart(): Add the product to cart and saves to local storage
+  - addToCart(): Add product to shopping cart and saves to local storage
+  - deleteFromCart(): Delete the cart item from shopping cart
+  - clearCart(): Clear the shopping cart
+  - updateCartItemQuantity(): Updates cart item quantity and saves to local storage
   - updateLocalStorage(): Update the data stored in the browser's localStorage
   - cartItemComponent(): Create a HTML string that make up the cart item's structure
+  - renderCartItems(): Update the cart item display in the shopping cart
 
   Note: This documentation provides a high-level understanding of the code's purpose and functions.
   For detailed information, please refer to the comments within each function.
 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Declare and init variables
+let cartList = []; // Declare array 
 
 // Start when the document is ready
 if (document.readyState == "loading") {
@@ -34,6 +42,13 @@ if (document.readyState == "loading") {
 
 // The start function initializes a series of functions
 function start() {
+
+    // Load cart items from local storage on page load
+    if (localStorage.getItem('cartList')) {
+        cartList = JSON.parse(localStorage.getItem('cartList'));
+        renderCartItems();
+    }
+    
     cartOpenClose();
     searchFunction();
     sortByButtonOpenClose();
@@ -42,7 +57,8 @@ function start() {
     categoryButtonXS();
     filterButtonXS();
     filterPriceRange();
-    addToCart();
+    updateCartState();
+    cartEvents();
 }
 
 // ============ Functions ===============
@@ -103,9 +119,9 @@ function searchFunction() {
     const productBoxes = Array.from(document.getElementsByClassName('product-box')); // Convert and get an array of product boxes
 
     // Iterate over each product box
-    productBoxes.forEach(box => {
-        const title = box.querySelector('.product-title').textContent || box.querySelector('.product-title').innerText;
-        box.style.display = title.toUpperCase().includes(input) ? '' : 'none';
+    productBoxes.forEach((productBox) => {
+        const title = productBox.querySelector('.product-title').textContent || productBox.querySelector('.product-title').innerText;
+        productBox.style.display = title.toUpperCase().includes(input) ? '' : 'none';
     });
 }
 
@@ -395,6 +411,17 @@ function clearFilter() {
     });
 }
 
+// Function to update cart state 
+function updateCartState() {
+    const cartState = document.querySelector('.fa-circle');
+    const cartItemTitle = document.querySelectorAll('.cart-product-title');
+    if (cartItemTitle.length > 0) {
+        cartState.style.display = 'inline';
+    } else {
+        cartState.style.display = 'none';
+    }
+}
+
 // ============ Cart Functions ===============
 function cartEvents() {
 
@@ -404,40 +431,114 @@ function cartEvents() {
         addToCartBtn.addEventListener('click', addToCart);
     });
 
+    const removeFromCartBtns = document.querySelectorAll('.cart-remove');
+    removeFromCartBtns.forEach((removeFromCartBtn) => {
+        removeFromCartBtn.addEventListener('click', deleteFromCart);
+    });
+
+    const clearCartBtn = document.querySelector('.btn-clear');
+    clearCartBtn.addEventListener('click', clearCart);
+
+    const itemQuantityInputs = document.querySelectorAll('.cart-quantity');
+    itemQuantityInputs.forEach((itemQuantityInput) => {
+        itemQuantityInput.addEventListener('change', updateCartItemQuantity);
+    });
+
 }
 
 // Function to add to cart
 function addToCart() {
-    let cartList = []; // Declare array 
-
     // Declare and init product info based on the add-to-cart-btn clicked that is attached to the product box
     const product = this.closest(".product-box");
     const title = product.querySelector(".product-title").textContent;
     const price = product.querySelector(".product-price").textContent;
     const imgSrc = product.querySelector(".product-img").src;
 
-    // Create an object with properties
-    let productItem = {
-        title,
-        price,
-        imgSrc,
-        quantity: 1
-    };
+    // const existingItem = cartList.find(p => p.title === title); // Short hand syntax
+    const existingItem = cartList.find((element) => { // Find the object in the array
+        return element.title === title;
+    });
 
-    cartList.push(productItem); // Add the object to cartList array
-    updateLocalStorage(); 
+    if (existingItem) {
+        existingItem.quantity += 1;
+        updateLocalStorage();
+        renderCartItems(); // Update cart item quantity in the cart 
+        cartEvents(); // Ensure event listeners are attached to the newly rendered cart item(s)
+    } else {
 
-    // Call the cartItemComponent function to get the HTML string for a cart item
-    let cartItem = cartItemComponent(title, price, imgSrc, 1);
+        // Create an object with properties
+        let productItem = {
+            title,
+            price,
+            imgSrc,
+            quantity: 1
+        };
 
-    let node = document.createElement("div"); // Create a new div element
+        cartList.push(productItem); // Add the object to cartList array
+        updateLocalStorage();
 
-    // Set the innerHTML of the new div element to the HTML string of the cart item
-    node.innerHTML = cartItem;
+        let node = document.createElement("div"); // Create a new div element
+        const cartContent = document.querySelector('.cart-content');
 
-    const cartContent = document.querySelector('.cart-content');
-    cartContent.appendChild(node); // Add cart item to the cart content
+        // Call the cartItemComponent function to get the HTML string for a cart item
+        let cartItem = cartItemComponent(title, price, imgSrc, 1);
+        node.innerHTML = cartItem; // Set the innerHTML of the new div element to the HTML string of the cart item
+        cartContent.appendChild(node); // Add cart item to the cart content
 
+        cartEvents(); // Ensure event listeners are attached to the newly added cart item(s)
+        updateCartState(); 
+    }
+}
+
+// Function to delete cart item from cart
+function deleteFromCart() {
+    const productTitle = this.parentElement.querySelector('.cart-product-title').textContent;
+    this.parentElement.remove();
+
+    // cartList = cartList.filter((element) => element.title !== productTitle);  // Short hand syntax
+    cartList = cartList.filter((element) => {
+        return element.title !== productTitle;
+    });
+
+    updateLocalStorage();
+    updateCartState(); 
+}
+
+// Function to clear cart 
+function clearCart() {
+    if (cartList.length <= 0) {
+        alert("Please make an order first!");
+        return; // Exit the function immediately preventing rest of logic being executed unnecessarily 
+    }
+
+    const cartContent = document.querySelector(".cart-content");
+    cartContent.textContent = '';
+
+    localStorage.removeItem('cartList'); // Delete the data based on keyname 
+    cartList = []; // Reset the array
+
+    updateCartState(); 
+}
+
+function updateCartItemQuantity() {
+    // Ensure that input value is valid positive integer between 1 and 10
+    let newQuantity = parseInt(this.value);
+    newQuantity = isNaN(newQuantity) ? 1 : Math.max(1, Math.min(newQuantity, 10));
+
+    this.value = newQuantity;
+
+    const productTitle = this.parentElement.querySelector('.cart-product-title').textContent;
+
+    // Find the index of the cart item in the array
+    // let foundIndex = itemsAdded.findIndex(item => item.title === productTitle); // Short hand syntax
+    let index = cartList.findIndex((element) => {
+        return element.title === productTitle;
+    });
+
+    if (index !== -1) { // Return -1 if the element is not found
+        cartList[index].quantity = newQuantity;
+        updateLocalStorage();
+    }
 }
 
 // Function to update the data stored in the browser's local storage
@@ -458,4 +559,20 @@ function cartItemComponent(title, price, imgSrc, quantity) {
     <!-- Remove cart -->
     <i class="fa-solid fa-trash fa-lg cart-remove"></i>
     </div>`;
+}
+
+// Function to update the display of the cart item(s)
+function renderCartItems() {
+    const cartContent = document.querySelector('.cart-content');
+
+    // Clear existing content inside the 'cart-content' element
+    cartContent.innerHTML = "";
+
+    // Iterate over each item in the array
+    cartList.forEach((cartItem) => {
+        // For each item, create an HTML string using the 'cartItemComponent' function
+        const cartItemHTML = cartItemComponent(cartItem.title, cartItem.price, cartItem.imgSrc, cartItem.quantity);
+        // Append the HTML string to the 'cart-content' element
+        cartContent.insertAdjacentHTML('beforeend', cartItemHTML);
+    });
 }

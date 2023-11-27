@@ -48,12 +48,12 @@ dropDownCBtn.addEventListener('click', () => {
     dropdownCContent.classList.toggle('show');
 });
 
-// Close the dropdown if the user clicks outside of it
-window.addEventListener('click', function (event) {
-    if (!event.target.matches('.categorybtn')) {
-        dropdownCContent.classList.remove('show');
-    }
-});
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function (event) {
+        if (!event.target.matches('.categorybtn')) {
+            dropdownCContent.classList.remove('show');
+        }
+    });
 
 // Filter By Price button
 const dropDownFBtn = document.querySelector(".pricefilter-dropdown");
