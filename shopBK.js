@@ -526,7 +526,7 @@ function handle_clearOrder() {
     itemsAdded = []; // Reset the itemsAdded array
 
     update();
-
+    
 }
 
 // ============ Update and re-render functions ===============
