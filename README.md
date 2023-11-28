@@ -11,8 +11,8 @@ This repo contains source code for ABCStore, an E-commerce website using html, v
 To install and set up your project:
 
 ```bash
-# installation steps
 cd path/to/directory
+
 git clone https://github.com/josephkohhh/ABCStore.git
 ```
 ## Features
