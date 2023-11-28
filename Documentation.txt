@@ -37,6 +37,14 @@ let is typically used for variables that may change their value during the execu
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Some array functions used in shop.js:
+
+const object = array.find(e => e.property === property);
+array = array.filter(e => e.property !== property); 
+const index = array.findIndex(e => e.property === property);
+
+------------------------------------------------------------------------------------------------------------------------
+
 function searchFunction() {
     const input = document.getElementById('myInput').value.toUpperCase();
     const productBoxes = document.getElementsByClassName('product-box');
