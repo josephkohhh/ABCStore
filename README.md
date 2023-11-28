@@ -13,7 +13,7 @@ To install and set up your project:
 ```bash
 cd path/to/directory
 
-git clone https://github.com/josephkohhh/ABCStore.git
+git clone -b feature/vanilla https://github.com/example/repository.git
 ```
 ## Features
 
