@@ -5,8 +5,6 @@ This repo contains source code for ABCStore, an E-commerce website using html, v
 
 - [Installation](#installation)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -19,12 +17,10 @@ git clone https://github.com/josephkohhh/ABCStore.git
 ```
 ## Features
 
-Product List
-Product Search
-Product Filter
-Shopping Cart
-
-
+- Product List
+- Product Search
+- Product Filter
+- Shopping Cart
 
 
 
