@@ -16,7 +16,7 @@ To install and set up your project:
 # installation steps
 cd path/to/directory
 git clone https://github.com/josephkohhh/ABCStore.git
-
+```
 ## Features
 
 Product List
