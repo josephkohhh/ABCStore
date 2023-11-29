@@ -1,5 +1,7 @@
 # ABCStore
-This repo contains source code for ABCStore, an E-commerce website using vanilla HTML, CSS and JavaScript.
+This repo contains source code for ABCStore, a responsive E-commerce website using vanilla HTML, CSS and JavaScript.
+
+![alt text](http://url/to/img.png)
 
 ## Table of Contents
 

@@ -341,12 +341,17 @@ function setMinMaxPrice() {
         maxPrice = Math.max(maxPrice, price); // Updates maxPrice to max value between current value and price
     });
 
+    // Calculate step value with fixed decimal places
+    const stepValue = 1;
+
     // Update price range's min and max price
     document.getElementById('price-slider').min = minPrice;
     document.getElementById('price-slider').max = maxPrice;
+    document.getElementById('price-slider').step = stepValue;
 
     document.getElementById('price-slider-xs').min = minPrice;
     document.getElementById('price-slider-xs').max = maxPrice;
+    document.getElementById('price-slider-xs').step = stepValue;
 
     // Set the selected price to min price
     price.textContent = `Selected Price: $${minPrice}`;
