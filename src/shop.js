@@ -341,7 +341,7 @@ function setMinMaxPrice() {
         maxPrice = Math.max(maxPrice, price); // Updates maxPrice to max value between current value and price
     });
 
-    // Calculate step value with fixed decimal places
+    // Declare and init step value 
     const stepValue = 1;
 
     // Update price range's min and max price

@@ -13,7 +13,7 @@ This repo contains source code for ABCStore, a responsive E-commerce website usi
 To install and set up your project:
 
 ```bash
-cd path/to/directory
+cd path/to/your-desired-directory
 
 git clone -b feature/vanilla https://github.com/example/repository.git
 ```
