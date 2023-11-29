@@ -1,7 +1,11 @@
 # ABCStore
 This repo contains source code for ABCStore, a responsive E-commerce website using vanilla HTML, CSS and JavaScript.
 
+Web:
 <img src="/assets/images/web-ss.PNG" alt="Project Image" width="550px" height="500px">
+
+Mobile:
+<img src="/assets/images/mobile-ss.PNG" alt="Project Image" width="550px" height="700px">
 
 ## Table of Contents
 
