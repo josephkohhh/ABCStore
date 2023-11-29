@@ -3,7 +3,7 @@ This repo contains source code for ABCStore, a responsive E-commerce website usi
 
 <img src="/assets/images/web-ss.PNG" alt="Project Desktop View" title="Desktop View" width="550px" height="500px">
 
-<img src="/assets/images/mobile-ss.PNG" alt="Project Mobile View" title="Mobile View" width="400px" height="500px">
+<img src="/assets/images/mobile-ss.PNG" alt="Project Mobile View" title="Mobile View" width="280px" height="500px">
 
 ## Table of Contents
 
