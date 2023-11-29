@@ -1,5 +1,5 @@
 # ABCStore
-This repo contains source code for ABCStore, a responsive E-commerce website using vanilla HTML, CSS and JavaScript.
+This repo contains source code for ABCStore, a responsive shopping cart module using vanilla HTML, CSS and JavaScript.
 
 <img src="/assets/images/web-ss.PNG" alt="Project Desktop View" title="Desktop View" width="550px" height="500px">
 
